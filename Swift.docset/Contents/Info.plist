@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>Swift</string>
+	<key>CFBundleName</key>
+	<string>Swift 5.1 Language Guide</string>
+	<key>DocSetPlatformFamily</key>
+	<string>Swift</string>
+	<key>isDashDocset</key>
+	<true/>
+	<key>dashIndexFilePath</key>
+	<string>LanguageGuide/TheBasics.html</string>
+	<key>DashDocSetFallbackURL</key>
+	<string>https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html</string>
+</dict>
+</plist>
