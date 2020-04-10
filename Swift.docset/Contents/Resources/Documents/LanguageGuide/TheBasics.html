@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>The Basics &mdash; The Swift Programming Language (Swift 5.1)</title>
+    <title>The Basics &mdash; The Swift Programming Language (Swift 5.2)</title>
     
     <link rel="license" href="https://docs.swift.org/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.1</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.2</div></h2>
 
     <ul>
     <ul class="current">
@@ -538,7 +538,7 @@
 </li><li>}
 </li><li><span class="c">// Prints &quot;convertedNumber contains some integer value.&quot;</span>
 </li></ol></div></div></div>
-<p>Once you’re sure that the optional <em>does</em> contain a value, you can access its underlying value by adding an exclamation mark (<code class="docutils literal notranslate"><span class="pre">!</span></code>) to the end of the optional’s name. The exclamation mark effectively says, “I know that this optional definitely has a value; please use it.” This is known as <em>forced unwrapping</em> of the optional’s value:</p>
+<p>Once you’re sure that the optional <em>does</em> contain a value, you can access its underlying value by adding an exclamation point (<code class="docutils literal notranslate"><span class="pre">!</span></code>) to the end of the optional’s name. The exclamation point effectively says, “I know that this optional definitely has a value; please use it.” This is known as <em>forced unwrapping</em> of the optional’s value:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="nv">convertedNumber</span> != <span class="k">nil</span> {
 </li><li>    <span class="nv">print</span>(<span class="s">&quot;convertedNumber has an integer value of </span>\<span class="p">(</span><span class="nv">convertedNumber</span>!<span class="p">)</span><span class="s">.&quot;</span>)
 </li><li>}
@@ -594,21 +594,21 @@
 <h3>Implicitly Unwrapped Optionals<a class="headerlink" href="TheBasics.html#ID334" title="Permalink to this headline">¶</a></h3>
 <p>As described above, optionals indicate that a constant or variable is allowed to have “no value”. Optionals can be checked with an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to see if a value exists, and can be conditionally unwrapped with optional binding to access the optional’s value if it does exist.</p>
 <p>Sometimes it’s clear from a program’s structure that an optional will <em>always</em> have a value, after that value is first set. In these cases, it’s useful to remove the need to check and unwrap the optional’s value every time it’s accessed, because it can be safely assumed to have a value all of the time.</p>
-<p>These kinds of optionals are defined as <em>implicitly unwrapped optionals</em>. You write an implicitly unwrapped optional by placing an exclamation mark (<code class="docutils literal notranslate"><span class="pre">String!</span></code>) rather than a question mark (<code class="docutils literal notranslate"><span class="pre">String?</span></code>) after the type that you want to make optional.</p>
+<p>These kinds of optionals are defined as <em>implicitly unwrapped optionals</em>. You write an implicitly unwrapped optional by placing an exclamation point (<code class="docutils literal notranslate"><span class="pre">String!</span></code>) rather than a question mark (<code class="docutils literal notranslate"><span class="pre">String?</span></code>) after the type that you want to make optional. Rather than placing an exclamation point after the optional’s name when you use it, you place an exclamation point after the optional’s type when you declare it.</p>
 <p>Implicitly unwrapped optionals are useful when an optional’s value is confirmed to exist immediately after the optional is first defined and can definitely be assumed to exist at every point thereafter. The primary use of implicitly unwrapped optionals in Swift is during class initialization, as described in <a class="reference internal" href="AutomaticReferenceCounting.html#ID55"><span class="std std-ref">Unowned References and Implicitly Unwrapped Optional Properties</span></a>.</p>
 <p>An implicitly unwrapped optional is a normal optional behind the scenes, but can also be used like a non-optional value, without the need to unwrap the optional value each time it’s accessed. The following example shows the difference in behavior between an optional string and an implicitly unwrapped optional string when accessing their wrapped value as an explicit <code class="docutils literal notranslate"><span class="pre">String</span></code>:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">possibleString</span>: <span class="nc">String</span>? = <span class="s">&quot;An optional string.&quot;</span>
-</li><li><span class="k">let</span> <span class="nv">forcedString</span>: <span class="nc">String</span> = <span class="nv">possibleString</span>! <span class="c">// requires an exclamation mark</span>
+</li><li><span class="k">let</span> <span class="nv">forcedString</span>: <span class="nc">String</span> = <span class="nv">possibleString</span>! <span class="c">// requires an exclamation point</span>
 </li><li>
 </li><li><span class="k">let</span> <span class="nv">assumedString</span>: <span class="nc">String</span>! = <span class="s">&quot;An implicitly unwrapped optional string.&quot;</span>
-</li><li><span class="k">let</span> <span class="nv">implicitString</span>: <span class="nc">String</span> = <span class="nv">assumedString</span> <span class="c">// no need for an exclamation mark</span>
+</li><li><span class="k">let</span> <span class="nv">implicitString</span>: <span class="nc">String</span> = <span class="nv">assumedString</span> <span class="c">// no need for an exclamation point</span>
 </li></ol></div></div></div>
-<p>You can think of an implicitly unwrapped optional as giving permission for the optional to be unwrapped automatically whenever it’s used. Rather than placing an exclamation mark after the optional’s name each time you use it, you place an exclamation mark after the optional’s type when you declare it.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If an implicitly unwrapped optional is <code class="docutils literal notranslate"><span class="pre">nil</span></code> and you try to access its wrapped value, you’ll trigger a runtime error. The result is exactly the same as if you place an exclamation mark after a normal optional that doesn’t contain a value.</p>
-</div>
-<p>You can still treat an implicitly unwrapped optional like a normal optional, to check if it contains a value:</p>
+<p>You can think of an implicitly unwrapped optional as giving permission for the optional to be force-unwrapped if needed. When you use an implicitly unwrapped optional value, Swift first tries to use it as an ordinary optional value; if it can’t be used as an optional, Swift force-unwraps the value. In the code above, the optional value <code class="docutils literal notranslate"><span class="pre">assumedString</span></code> is force-unwrapped before assigning its value to <code class="docutils literal notranslate"><span class="pre">implicitString</span></code> because <code class="docutils literal notranslate"><span class="pre">implicitString</span></code> has an explicit, non-optional type of <code class="docutils literal notranslate"><span class="pre">String</span></code>. In code below, <code class="docutils literal notranslate"><span class="pre">optionalString</span></code> doesn’t have an explicit type so it’s an ordinary optional.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">optionalString</span> = <span class="nv">assumedString</span>
+</li><li><span class="c">// The type of optionalString is &quot;String?&quot; and assumedString isn&#39;t force-unwrapped.</span>
+</li></ol></div></div></div>
+<p>If an implicitly unwrapped optional is <code class="docutils literal notranslate"><span class="pre">nil</span></code> and you try to access its wrapped value, you’ll trigger a runtime error. The result is exactly the same as if you place an exclamation point after a normal optional that doesn’t contain a value.</p>
+<p>You can check whether an implicitly unwrapped optional is <code class="docutils literal notranslate"><span class="pre">nil</span></code> the same way you check a normal optional:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="nv">assumedString</span> != <span class="k">nil</span> {
 </li><li>    <span class="nv">print</span>(<span class="nv">assumedString</span>!)
 </li><li>}
@@ -723,7 +723,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2019 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2020 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

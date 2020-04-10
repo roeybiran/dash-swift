@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Error Handling &mdash; The Swift Programming Language (Swift 5.1)</title>
+    <title>Error Handling &mdash; The Swift Programming Language (Swift 5.2)</title>
     
     <link rel="license" href="https://docs.swift.org/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.1</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.2</div></h2>
 
     <ul>
     <ul class="current">
@@ -256,7 +256,7 @@
 </li><li><span class="c">// Prints &quot;Insufficient funds. Please insert an additional 2 coins.&quot;</span>
 </li></ol></div></div></div>
 <p>In the above example, the <code class="docutils literal notranslate"><span class="pre">buyFavoriteSnack(person:vendingMachine:)</span></code> function is called in a <code class="docutils literal notranslate"><span class="pre">try</span></code> expression, because it can throw an error. If an error is thrown, execution immediately transfers to the <code class="docutils literal notranslate"><span class="pre">catch</span></code> clauses, which decide whether to allow propagation to continue. If no pattern is matched, the error gets caught by the final <code class="docutils literal notranslate"><span class="pre">catch</span></code> clause and is bound to a local <code class="docutils literal notranslate"><span class="pre">error</span></code> constant. If no error is thrown, the remaining statements in the <code class="docutils literal notranslate"><span class="pre">do</span></code> statement are executed.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">catch</span></code> clauses don’t have to handle every possible error that the code in the <code class="docutils literal notranslate"><span class="pre">do</span></code> clause can throw. If none of the <code class="docutils literal notranslate"><span class="pre">catch</span></code> clauses handle the error, the error propagates to the surrounding scope. However, the propagated error must be handled by <em>some</em> surrounding scope. In a nonthrowing function, an enclosing <code class="docutils literal notranslate"><span class="pre">do</span></code>-<code class="docutils literal notranslate"><span class="pre">catch</span></code> clause must handle the error. In a throwing function, either an enclosing <code class="docutils literal notranslate"><span class="pre">do</span></code>-<code class="docutils literal notranslate"><span class="pre">catch</span></code> clause or the caller must handle the error. If the error propagates to the top-level scope without being handled, you’ll get a runtime error.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">catch</span></code> clauses don’t have to handle every possible error that the code in the <code class="docutils literal notranslate"><span class="pre">do</span></code> clause can throw. If none of the <code class="docutils literal notranslate"><span class="pre">catch</span></code> clauses handle the error, the error propagates to the surrounding scope. However, the propagated error must be handled by <em>some</em> surrounding scope. In a nonthrowing function, an enclosing <code class="docutils literal notranslate"><span class="pre">do</span></code>-<code class="docutils literal notranslate"><span class="pre">catch</span></code> statement must handle the error. In a throwing function, either an enclosing <code class="docutils literal notranslate"><span class="pre">do</span></code>-<code class="docutils literal notranslate"><span class="pre">catch</span></code> statement or the caller must handle the error. If the error propagates to the top-level scope without being handled, you’ll get a runtime error.</p>
 <p>For example, the above example can be written so any error that isn’t a <code class="docutils literal notranslate"><span class="pre">VendingMachineError</span></code> is instead caught by the calling function:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">nourish</span>(<span class="nv">with</span> <span class="nv">item</span>: <span class="nc">String</span>) <span class="k">throws</span> {
 </li><li>    <span class="k">do</span> {
@@ -348,7 +348,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2019 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2020 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
