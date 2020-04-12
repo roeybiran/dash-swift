@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Closures &mdash; The Swift Programming Language (Swift 5.1)</title>
+    <title>Closures &mdash; The Swift Programming Language (Swift 5.2)</title>
     
     <link rel="license" href="https://docs.swift.org/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.1</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.2</div></h2>
 
     <ul>
     <ul class="current">
@@ -214,7 +214,7 @@
 <p>There’s actually an even <em>shorter</em> way to write the closure expression above. Swift’s <code class="docutils literal notranslate"><span class="pre">String</span></code> type defines its string-specific implementation of the greater-than operator (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>) as a method that has two parameters of type <code class="docutils literal notranslate"><span class="pre">String</span></code>, and returns a value of type <code class="docutils literal notranslate"><span class="pre">Bool</span></code>. This exactly matches the method type needed by the <code class="docutils literal notranslate"><span class="pre">sorted(by:)</span></code> method. Therefore, you can simply pass in the greater-than operator, and Swift will infer that you want to use its string-specific implementation:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">reversedNames</span> = <span class="nv">names</span>.<span class="nv">sorted</span>(<span class="nv">by</span>: &gt;)
 </li></ol></div></div></div>
-<p>For more about operator method, see <a class="reference internal" href="AdvancedOperators.html#ID42"><span class="std std-ref">Operator Methods</span></a>.</p>
+<p>For more about operator methods, see <a class="reference internal" href="AdvancedOperators.html#ID42"><span class="std std-ref">Operator Methods</span></a>.</p>
 </div>
 </div>
 <div class="section" id="ID102">
@@ -270,7 +270,7 @@
 <p>The closure expression builds a string called <code class="docutils literal notranslate"><span class="pre">output</span></code> each time it is called. It calculates the last digit of <code class="docutils literal notranslate"><span class="pre">number</span></code> by using the remainder operator (<code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">%</span> <span class="pre">10</span></code>), and uses this digit to look up an appropriate string in the <code class="docutils literal notranslate"><span class="pre">digitNames</span></code> dictionary. The closure can be used to create a string representation of any integer greater than zero.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The call to the <code class="docutils literal notranslate"><span class="pre">digitNames</span></code> dictionary’s subscript is followed by an exclamation mark (<code class="docutils literal notranslate"><span class="pre">!</span></code>), because dictionary subscripts return an optional value to indicate that the dictionary lookup can fail if the key does not exist. In the example above, it is guaranteed that <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">%</span> <span class="pre">10</span></code> will always be a valid subscript key for the <code class="docutils literal notranslate"><span class="pre">digitNames</span></code> dictionary, and so an exclamation mark is used to force-unwrap the <code class="docutils literal notranslate"><span class="pre">String</span></code> value stored in the subscript’s optional return value.</p>
+<p class="last">The call to the <code class="docutils literal notranslate"><span class="pre">digitNames</span></code> dictionary’s subscript is followed by an exclamation point (<code class="docutils literal notranslate"><span class="pre">!</span></code>), because dictionary subscripts return an optional value to indicate that the dictionary lookup can fail if the key does not exist. In the example above, it is guaranteed that <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">%</span> <span class="pre">10</span></code> will always be a valid subscript key for the <code class="docutils literal notranslate"><span class="pre">digitNames</span></code> dictionary, and so an exclamation point is used to force-unwrap the <code class="docutils literal notranslate"><span class="pre">String</span></code> value stored in the subscript’s optional return value.</p>
 </div>
 <p>The string retrieved from the <code class="docutils literal notranslate"><span class="pre">digitNames</span></code> dictionary is added to the <em>front</em> of <code class="docutils literal notranslate"><span class="pre">output</span></code>, effectively building a string version of the number in reverse. (The expression <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">%</span> <span class="pre">10</span></code> gives a value of <code class="docutils literal notranslate"><span class="pre">6</span></code> for <code class="docutils literal notranslate"><span class="pre">16</span></code>, <code class="docutils literal notranslate"><span class="pre">8</span></code> for <code class="docutils literal notranslate"><span class="pre">58</span></code>, and <code class="docutils literal notranslate"><span class="pre">0</span></code> for <code class="docutils literal notranslate"><span class="pre">510</span></code>.)</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">number</span></code> variable is then divided by <code class="docutils literal notranslate"><span class="pre">10</span></code>. Because it is an integer, it is rounded down during the division, so <code class="docutils literal notranslate"><span class="pre">16</span></code> becomes <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">58</span></code> becomes <code class="docutils literal notranslate"><span class="pre">5</span></code>, and <code class="docutils literal notranslate"><span class="pre">510</span></code> becomes <code class="docutils literal notranslate"><span class="pre">51</span></code>.</p>
@@ -453,7 +453,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2019 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2020 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Subscripts &mdash; The Swift Programming Language (Swift 5.1)</title>
+    <title>Subscripts &mdash; The Swift Programming Language (Swift 5.2)</title>
     
     <link rel="license" href="https://docs.swift.org/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.1</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.2</div></h2>
 
     <ul>
     <ul class="current">
@@ -169,7 +169,8 @@
 </div>
 <div class="section" id="ID308">
 <h2>Subscript Options<a class="headerlink" href="Subscripts.html#ID308" title="Permalink to this headline">¶</a></h2>
-<p>Subscripts can take any number of input parameters, and these input parameters can be of any type. Subscripts can also return any type. Subscripts can use variadic parameters, but they can’t use in-out parameters or provide default parameter values.</p>
+<p>Subscripts can take any number of input parameters, and these input parameters can be of any type. Subscripts can also return a value of any type.</p>
+<p>Like functions, subscripts can take a varying number of parameters and provide default values for their parameters, as discussed in <a class="reference internal" href="Functions.html#ID171"><span class="std std-ref">Variadic Parameters</span></a> and <a class="reference internal" href="Functions.html#ID169"><span class="std std-ref">Default Parameter Values</span></a>. However, unlike functions, subscripts can’t use in-out parameters.</p>
 <p>A class or structure can provide as many subscript implementations as it needs, and the appropriate subscript to be used will be inferred based on the types of the value or values that are contained within the subscript brackets at the point that the subscript is used. This definition of multiple subscripts is known as <em>subscript overloading</em>.</p>
 <p>While it is most common for a subscript to take a single parameter, you can also define a subscript with multiple parameters if it is appropriate for your type. The following example defines a <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> structure, which represents a two-dimensional matrix of <code class="docutils literal notranslate"><span class="pre">Double</span></code> values. The <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> structure’s subscript takes two integer parameters:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Matrix</span> {
@@ -247,7 +248,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2019 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2020 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

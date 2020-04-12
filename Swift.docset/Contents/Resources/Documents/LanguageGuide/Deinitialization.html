@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Deinitialization &mdash; The Swift Programming Language (Swift 5.1)</title>
+    <title>Deinitialization &mdash; The Swift Programming Language (Swift 5.2)</title>
     
     <link rel="license" href="https://docs.swift.org/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.1</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.2</div></h2>
 
     <ul>
     <ul class="current">
@@ -166,7 +166,7 @@
 </li><li><span class="c">// Prints &quot;There are now 9900 coins left in the bank&quot;</span>
 </li></ol></div></div></div>
 <p>A new <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance is created, with a request for 100 coins if they are available. This <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance is stored in an optional <code class="docutils literal notranslate"><span class="pre">Player</span></code> variable called <code class="docutils literal notranslate"><span class="pre">playerOne</span></code>. An optional variable is used here, because players can leave the game at any point. The optional lets you track whether there is currently a player in the game.</p>
-<p>Because <code class="docutils literal notranslate"><span class="pre">playerOne</span></code> is an optional, it is qualified with an exclamation mark (<code class="docutils literal notranslate"><span class="pre">!</span></code>) when its <code class="docutils literal notranslate"><span class="pre">coinsInPurse</span></code> property is accessed to print its default number of coins, and whenever its <code class="docutils literal notranslate"><span class="pre">win(coins:)</span></code> method is called:</p>
+<p>Because <code class="docutils literal notranslate"><span class="pre">playerOne</span></code> is an optional, it is qualified with an exclamation point (<code class="docutils literal notranslate"><span class="pre">!</span></code>) when its <code class="docutils literal notranslate"><span class="pre">coinsInPurse</span></code> property is accessed to print its default number of coins, and whenever its <code class="docutils literal notranslate"><span class="pre">win(coins:)</span></code> method is called:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">playerOne</span>!.<span class="nv">win</span>(<span class="nv">coins</span>: <span class="m">2_000</span>)
 </li><li><span class="nv">print</span>(<span class="s">&quot;PlayerOne won 2000 coins &amp; now has </span>\<span class="p">(</span><span class="nv">playerOne</span>!.<span class="nv">coinsInPurse</span><span class="p">)</span><span class="s"> coins&quot;</span>)
 </li><li><span class="c">// Prints &quot;PlayerOne won 2000 coins &amp; now has 2100 coins&quot;</span>
@@ -199,7 +199,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2019 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2020 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Properties &mdash; The Swift Programming Language (Swift 5.1)</title>
+    <title>Properties &mdash; The Swift Programming Language (Swift 5.2)</title>
     
     <link rel="license" href="https://docs.swift.org/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.1</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.2</div></h2>
 
     <ul>
     <ul class="current">
@@ -372,7 +372,8 @@
 <p>To define a property wrapper, you make a structure, enumeration, or class that defines a <code class="docutils literal notranslate"><span class="pre">wrappedValue</span></code> property. In the code below, the <code class="docutils literal notranslate"><span class="pre">TwelveOrLess</span></code> structure ensures that the value it wraps always contains a number less than or equal to 12. If you ask it to store a larger number, it stores 12 instead.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>@<span class="nv">propertyWrapper</span>
 </li><li><span class="k">struct</span> <span class="nv">TwelveOrLess</span> {
-</li><li>    <span class="k">private</span> <span class="k">var</span> <span class="nv">number</span> = <span class="m">0</span>
+</li><li>    <span class="k">private</span> <span class="k">var</span> <span class="nv">number</span>: <span class="nc">Int</span>
+</li><li>    <span class="k">init</span>() { <span class="k">self</span>.<span class="nv">number</span> = <span class="m">0</span> }
 </li><li>    <span class="k">var</span> <span class="nv">wrappedValue</span>: <span class="nc">Int</span> {
 </li><li>        <span class="k">get</span> { <span class="k">return</span> <span class="nv">number</span> }
 </li><li>        <span class="k">set</span> { <span class="nv">number</span> = <span class="nv">min</span>(<span class="nv">newValue</span>, <span class="m">12</span>) }
@@ -507,8 +508,12 @@
 <p>In the <code class="docutils literal notranslate"><span class="pre">SmallNumber</span></code> example above, if you try to set the property to a number that’s too large, the property wrapper adjusts the number before storing it. The code below adds a <code class="docutils literal notranslate"><span class="pre">projectedValue</span></code> property to the <code class="docutils literal notranslate"><span class="pre">SmallNumber</span></code> structure to keep track of whether the property wrapper adjusted the new value for the property before storing that new value.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>@<span class="nv">propertyWrapper</span>
 </li><li><span class="k">struct</span> <span class="nv">SmallNumber</span> {
-</li><li>    <span class="k">private</span> <span class="k">var</span> <span class="nv">number</span> = <span class="m">0</span>
-</li><li>    <span class="k">var</span> <span class="nv">projectedValue</span> = <span class="k">false</span>
+</li><li>    <span class="k">private</span> <span class="k">var</span> <span class="nv">number</span>: <span class="nc">Int</span>
+</li><li>    <span class="k">var</span> <span class="nv">projectedValue</span>: <span class="nc">Bool</span>
+</li><li>    <span class="k">init</span>() {
+</li><li>        <span class="k">self</span>.<span class="nv">number</span> = <span class="m">0</span>
+</li><li>        <span class="k">self</span>.<span class="nv">projectedValue</span> = <span class="k">false</span>
+</li><li>    }
 </li><li>    <span class="k">var</span> <span class="nv">wrappedValue</span>: <span class="nc">Int</span> {
 </li><li>        <span class="k">get</span> { <span class="k">return</span> <span class="nv">number</span> }
 </li><li>        <span class="k">set</span> {
@@ -535,7 +540,7 @@
 </li><li><span class="nv">print</span>(<span class="nv">someStructure</span>.<span class="nv">$someNumber</span>)
 </li><li><span class="c">// Prints &quot;true&quot;</span>
 </li></ol></div></div></div>
-<p>Writing <code class="docutils literal notranslate"><span class="pre">s.$someNumber</span></code> accesses the wrapper’s projected value. After storing a small number like four, the value of <code class="docutils literal notranslate"><span class="pre">s.$someNumber</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code>. However, the projected value is <code class="docutils literal notranslate"><span class="pre">true</span></code> after trying to store a number that’s too large, like 55.</p>
+<p>Writing <code class="docutils literal notranslate"><span class="pre">someStructure.$someNumber</span></code> accesses the wrapper’s projected value. After storing a small number like four, the value of <code class="docutils literal notranslate"><span class="pre">someStructure.$someNumber</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code>. However, the projected value is <code class="docutils literal notranslate"><span class="pre">true</span></code> after trying to store a number that’s too large, like 55.</p>
 <p>A property wrapper can return a value of any type as its projected value. In this example, the property wrapper exposes only one piece of information—whether the number was adjusted—so it exposes that Boolean value as its projected value. A wrapper that needs to expose more information can return an instance of some other data type, or it can return <code class="docutils literal notranslate"><span class="pre">self</span></code> to expose the instance of the wrapper as its projected value.</p>
 <p>When you access a projected value from code that’s part of the type, like a property getter or an instance method, you can omit <code class="docutils literal notranslate"><span class="pre">self.</span></code> before the property name, just like accessing other properties. The code in the following example refers to the projected value of the wrapper around <code class="docutils literal notranslate"><span class="pre">height</span></code> and <code class="docutils literal notranslate"><span class="pre">width</span></code> as <code class="docutils literal notranslate"><span class="pre">$height</span></code> and <code class="docutils literal notranslate"><span class="pre">$width</span></code>:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">Size</span> {
@@ -698,7 +703,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2019 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2020 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="https://www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
